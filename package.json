@@ -1,0 +1,19 @@
+{
+  "name": "gold-rush",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "express": "^4.17.1",
+    "handlebars": "^4.5.3",
+    "jquery": "^3.4.1"
+  }
+}
