@@ -36,8 +36,8 @@ class Matrix {
         console.log(this.matrix[rowNum][i])
     }
 
-    alter(rowNum, rowCol, value) {
-        this.matrix[rowNum][rowCol] = value
+    alter(rowNum, colNum, value) {
+        this.matrix[rowNum][colNum] = value
     }
 
     findCoordinate(value) {

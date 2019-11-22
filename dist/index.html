@@ -8,7 +8,32 @@
     <title>Gold-Rush</title>
 </head>
 <body>
-    
+    <div id="container">
+        <div id="board"></div>
+        <div id="scores"></div>
+        <div id="winner"></div>
+        <div id="form">
+            <input type="number" id="rows" placeholder="Rows">
+            <input type="number" id="columns" placeholder="Columns">
+            <button onclick="start()">Play</button>
+        </div>
+    </div>
+
+    <script id="board-template" type="text/x-handlebars-template">
+        {{#each matrix}}
+            <div>
+                {{#each this}}
+                    {{this}}&Tab;&ThickSpace;
+                {{/each}}
+            </div>
+        {{/each}}
+    </script>
+
+    <script id="score-template" type="text/x-handlebars-template">
+            <p>Player 1: {{player1}}</p>
+            <p>Player 2: {{player2}}</p>
+    </script>
+
     <script src="jquery/dist/jquery.js"></script>
     <script src="handlebars/dist/handlebars.js"></script>
     <script src="./models/Matrix.js"></script>
