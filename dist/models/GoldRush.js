@@ -1,4 +1,3 @@
-
 class GoldRush extends Matrix {
     constructor(numRows, NumCols) {
         super(numRows, NumCols)
@@ -7,7 +6,7 @@ class GoldRush extends Matrix {
 
     generateCoins(coinAmount) {
         for (let i = 0; i < coinAmount; i++) {
-            let coinLocation = {y: Math.floor(Math.random() * 4), x: Math.floor(Math.random() * 4)}
+            let coinLocation = {y: Math.floor(Math.random() * coinAmount), x: Math.floor(Math.random() * coinAmount)}
             if (this.isWall(coinLocation.y,coinLocation.x) || this.isPlayer(coinLocation.y,coinLocation.x) || this.isCoin(coinLocation.y, coinLocation.x)) { i-- }
             else { this.alter(coinLocation.y, coinLocation.x, 'c') }
         }
@@ -15,7 +14,7 @@ class GoldRush extends Matrix {
     
     generateWalls(wallsAmount) {
         for (let i = 0; i < wallsAmount; i++) {
-            let wallLocation = {y: Math.floor(Math.random() * 3), x: Math.floor(Math.random() * 3)}
+            let wallLocation = {y: Math.floor(Math.random() * wallsAmount), x: Math.floor(Math.random() * wallsAmount)}
             if (this.isPlayer(wallLocation.y, wallLocation.x)) { i-- }
             else {this.alter(wallLocation.y, wallLocation.x, '|')}
         }
@@ -75,8 +74,8 @@ class GoldRush extends Matrix {
         return this.get(rowNum, numCols) === '|'
     }
     isOutOfBounds(location) {
-        let matrixY = this.matrix.length
-        let matrixX = this.matrix[matrixY - 1].length
+        let matrixY = this.matrix.length - 1
+        let matrixX = this.matrix[matrixY].length - 1
         console.log(matrixY, matrixX)
         return location.x < 0 || location.y < 0 || location.x > matrixX || location.y > matrixY
     }
@@ -93,7 +92,7 @@ class GoldRush extends Matrix {
         return "OK"
     }
 
-    noCoins() {
+    noCoinsLeft() {
         try {
         this.findCoordinate('c')
         } catch (err) {
@@ -103,12 +102,14 @@ class GoldRush extends Matrix {
     }
 
     getWinner() {
+        if (this.scores.player1 === this.scores.player2) { return "Tie"}
         return this.scores.player1 > this.scores.player2 ? 1 : 2
     }
 
     load(rowNum, colNum) {
-        this.generateCoins()
-        this.generateWalls(Math.floor(rowNum + colNum / 4))
+        console.log((rowNum + colNum) / 4)
+        this.generateCoins(Math.floor((rowNum + colNum) / 2))
+        this.generateWalls(Math.floor((rowNum + colNum) / 2))
         this.generatePlayers(rowNum, colNum)
     }
 }

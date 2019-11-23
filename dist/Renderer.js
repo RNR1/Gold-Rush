@@ -25,6 +25,7 @@ class Renderer {
 
     renderWinner(player) {
         if (player === undefined) { return this.winner.html("") } 
+        if (player === "Tie") { return this.winner.html("It's a Tie!") }
         this.winner.html(`Player ${player} Wins!`)
     }
 }
