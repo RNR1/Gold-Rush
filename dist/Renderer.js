@@ -13,6 +13,7 @@ class Renderer {
 
         const board = template({matrix})
         this.board.html(board)
+        this.renderIcons()
     }
 
     renderScoreBoard(scores) {
@@ -27,5 +28,11 @@ class Renderer {
         if (player === undefined) { return this.winner.html("") } 
         if (player === "Tie") { return this.winner.html("It's a Tie!") }
         this.winner.html(`Player ${player} Wins!`)
+    }
+
+    renderIcons() {
+        $(".c").html(`<i class="fab fa-bitcoin"></i>`)
+        $(".1").html(`<i class="far fa-smile"></i>`)
+        $(".2").html(`<i class="fas fa-smile"></i>`)
     }
 }

@@ -4,7 +4,7 @@ let board
 const start = () => {
     let rowNum = parseInt($("#rows").val())
     let colNum = parseInt($("#columns").val())
-    if (rowNum === NaN || colNum === NaN) { return }
+    if (rowNum === NaN || colNum === NaN || rowNum !== colNum) { return }
     board = new GoldRush(rowNum, colNum)
     board.load(rowNum, colNum)
 

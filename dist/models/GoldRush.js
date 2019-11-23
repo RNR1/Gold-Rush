@@ -16,7 +16,7 @@ class GoldRush extends Matrix {
         for (let i = 0; i < wallsAmount; i++) {
             let wallLocation = {y: Math.floor(Math.random() * wallsAmount), x: Math.floor(Math.random() * wallsAmount)}
             if (this.isPlayer(wallLocation.y, wallLocation.x)) { i-- }
-            else {this.alter(wallLocation.y, wallLocation.x, '|')}
+            else {this.alter(wallLocation.y, wallLocation.x, 'w')}
         }
     }
 
@@ -71,12 +71,11 @@ class GoldRush extends Matrix {
     }
 
     isWall(rowNum, numCols) {
-        return this.get(rowNum, numCols) === '|'
+        return this.get(rowNum, numCols) === 'w'
     }
     isOutOfBounds(location) {
         let matrixY = this.matrix.length - 1
         let matrixX = this.matrix[matrixY].length - 1
-        console.log(matrixY, matrixX)
         return location.x < 0 || location.y < 0 || location.x > matrixX || location.y > matrixY
     }
 
@@ -107,7 +106,6 @@ class GoldRush extends Matrix {
     }
 
     load(rowNum, colNum) {
-        console.log((rowNum + colNum) / 4)
         this.generateCoins(Math.floor((rowNum + colNum) / 2))
         this.generateWalls(Math.floor((rowNum + colNum) / 2))
         this.generatePlayers(rowNum, colNum)

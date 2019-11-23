@@ -1,0 +1,87 @@
+body {
+    background-color: #ECF0F1;
+}
+
+#container {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas: "board" "winner" "scores" "form";
+}
+
+button {
+    background-color: #27AE60;
+}
+
+#board {
+    height: 70vh;
+    grid-area: board;
+    display: grid;
+    justify-content: center;
+}
+
+.row {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.col {
+    text-align: center;
+    width: 50px;
+    padding: 20px;
+    align-content: center;
+    border: 1px solid black;
+    user-select: none;
+}
+.w {
+    background-color: #CD6133;
+    color: #CD6133;
+}
+
+.c {
+    color: #F1C411;
+    font-size: 16px;
+}
+
+.fa-smile {
+    font-size: 16px;
+}
+
+#winner {
+    grid-area: winner;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 24px;
+}
+
+#scores {
+    grid-area: scores;
+    display: grid;
+    justify-content: space-around;
+    font-family: 'Permanent Marker', cursive;
+    grid-auto-flow: column;
+    font-size: 20px;
+    :first-child {
+        color: #4890C1;
+    }
+    :nth-child(2) {
+        color: #C0392E;
+    }
+}
+
+#form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 6fr;
+    grid-auto-flow: column;
+    grid-area: form;
+    align-items: center;
+    grid-gap: 5px;
+    
+    > * {
+    height: 50px;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px 1px rgb(90, 90, 90);
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    }
+}
