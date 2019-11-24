@@ -5,13 +5,14 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas: "board" "winner" "scores" "form";
 }
 button {
   background-color: #27AE60;
 }
 #board {
-  height: 70vh;
+  height: 90vh;
   grid-area: board;
   display: grid;
   justify-content: center;
